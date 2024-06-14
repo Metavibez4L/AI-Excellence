@@ -19,7 +19,7 @@ The project is structured as follows:
 
 bash
 Copy code
-laguna-premier/
+Vibezlife/
 ├── .env
 ├── .gitignore
 ├── package.json
