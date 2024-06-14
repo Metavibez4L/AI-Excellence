@@ -1,4 +1,3 @@
-Project Description for GitHub README
 Vibezlife AI - Real Estate Data Analysis AI Powered by Bun.js
 Vibezlife is an AI-powered backend application designed to process and analyze real estate databases. This project utilizes Bun.js for server-side operations, PostgreSQL for data storage, and OpenAI's GPT-4 for generating data-driven investment suggestions. The system is capable of handling user input, summarizing real estate data, and providing insightful analysis and recommendations for real estate investments.
 
