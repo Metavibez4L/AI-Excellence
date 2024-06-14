@@ -1,5 +1,4 @@
-# lagunaai
-
+# AI Excellence
 To install dependencies:
 
 ```bash
