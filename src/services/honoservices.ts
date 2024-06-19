@@ -4,6 +4,8 @@ const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 export async function generateSuggestions(prompt: string): Promise<string> {
     try {
+        const openai = new OpenAI(process.env.OPENAI_API_KEY); // Move the instantiation of OpenAI inside the function
+
         const response = await openai.chat.completions.create({
             model: 'gpt-4',
             messages: [{ role: 'system', content: 'You are a master real estate mogul consultant' }, { role: 'user', content: prompt }],
@@ -12,7 +14,7 @@ export async function generateSuggestions(prompt: string): Promise<string> {
 
         let result = '';
         for await (const chunk of response) {
-            result += chunk;
+            result += JSON.stringify(chunk);
         }
 
         console.log('OpenAI API response:', result);
