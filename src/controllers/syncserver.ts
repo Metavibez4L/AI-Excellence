@@ -1,5 +1,5 @@
 import { serve } from "bun"; // Import Bun's built-in server
-import { connectToDatabase, fetchDataFromPostgres, closeDatabaseConnection } from "./insyncdata.ts"; // Import database functions
+import { connectToDatabase, fetchDataFromPostgres, closeDatabaseConnection } from "../models/insyncdata"; // Import database functions
 import dotenv from "dotenv"; // Import dotenv to manage environment variables
 import { OpenAI } from "openai"; // Import OpenAI client
 
