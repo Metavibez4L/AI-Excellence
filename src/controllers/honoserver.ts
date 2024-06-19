@@ -1,5 +1,5 @@
 import { Context } from 'hono';
-import { connectToDatabase, fetchDataFromPostgres, closeDatabaseConnection } from '../models/honodata';
+import { connectToDatabase, fetchDataFromPostgres, closeDatabaseConnection } from '../models/honodata.ts';
 import { generateSuggestions } from '../services/honoservices.ts';
 import { constructPrompt } from '../utils/summarizeutil.ts';
 import { Client } from 'pg';
