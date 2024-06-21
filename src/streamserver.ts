@@ -1,4 +1,5 @@
-import { Hono, StreamFeature } from 'hono';
+import { Hono } from 'hono';
+import { streamText } from 'hono/streaming';
 import { serve } from 'bun';
 import { OpenAI } from 'openai';
 import dotenv from 'dotenv';
@@ -22,7 +23,8 @@ app.post('/generate', async (c) => {
             messages: [{ role: 'system', content: 'You are a master real estate mogul consultant' }, { role: 'user', content: prompt }],
         });
 
-        const streamFeature = new StreamFeature(response);
+        // Use the streamText function to handle the streaming response as text
+        const streamFeature = streamText(response);
 
         let result = '';
 
