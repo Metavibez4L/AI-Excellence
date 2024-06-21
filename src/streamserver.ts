@@ -1,4 +1,4 @@
-import { Hono } from 'hono';
+import { Hono, StreamFeature } from 'hono';
 import { serve } from 'bun';
 import { OpenAI } from 'openai';
 import dotenv from 'dotenv';
@@ -22,16 +22,23 @@ app.post('/generate', async (c) => {
             messages: [{ role: 'system', content: 'You are a master real estate mogul consultant' }, { role: 'user', content: prompt }],
         });
 
-        const streamFeature = new c.res.StreamFeature(response);
+        const streamFeature = new StreamFeature(response);
 
         let result = '';
 
         // Process the streamed response
         for await (const chunk of streamFeature) {
             if (chunk) {
-                const chunkStr = JSON.stringify(chunk);
-                result += chunkStr;
-                console.log('Stream chunk:', chunkStr);
+                // Check if chunk is already a JSON string
+                try {
+                    JSON.parse(chunk);
+                    result += chunk;
+                } catch (error) {
+                    // If not, stringify it
+                    const chunkStr = JSON.stringify(chunk);
+                    result += chunkStr;
+                }
+                console.log('Stream chunk:', result);
             }
         }
 
