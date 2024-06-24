@@ -36,19 +36,19 @@ function findMatches(db1, db2) {
 // Main function to fetch data, find matches, and display the results in JSON format
 async function main() {
     const clientConfig1 = {
-        user: process.env.PGUSER1,
-        host: process.env.PGHOST1,
-        database: process.env.PGDATABASE1,
-        password: process.env.PGPASSWORD1,
-        port: process.env.PGPORT1,
+        user: process.env.PGUSER,
+        host: process.env.PGHOST,
+        database: process.env.PGDATABASE,
+        password: process.env.PGPASSWORD,
+        port: process.env.PGPORT,
     };
 
     const clientConfig2 = {
-        user: process.env.PGUSER2,
-        host: process.env.PGHOST2,
-        database: process.env.PGDATABASE2,
-        password: process.env.PGPASSWORD2,
-        port: process.env.PGPORT2,
+        user: process.env.NEW_PGUSER,
+        host: process.env.NEW_PGHOST,
+        database: process.env.NEW_PGDATABASE,
+        password: process.env.NEW_PGPASSWORD,
+        port: process.env.NEW_PGPORT,
     };
 
     try {
